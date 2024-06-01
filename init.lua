@@ -14,3 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 require("vim-options")
 require("lazy").setup("plugins")
 require("custom_keybindings")
+return require("lazy").setup({
+ {
+     'tzachar/cmp-tabnine',
+     build = './install.sh',
+     dependencies = 'hrsh7th/nvim-cmp',
+ }})
