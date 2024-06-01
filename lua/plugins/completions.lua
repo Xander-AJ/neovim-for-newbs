@@ -3,6 +3,9 @@ return {
     "hrsh7th/cmp-nvim-lsp"
   },
   {
+    "tzachar/cmp-tabnine"
+  },
+  {
     "L3MON4D3/LuaSnip",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
@@ -14,7 +17,7 @@ return {
     config = function()
       local cmp = require("cmp")
       require("luasnip.loaders.from_vscode").lazy_load()
-
+      
       cmp.setup({
         snippet = {
           expand = function(args)
@@ -34,11 +37,28 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
+          { name = "cmp_tabnine"},
           { name = "luasnip" }, -- For luasnip users.
         }, {
           { name = "buffer" },
         }),
       })
+      local tabnine = require('cmp_tabnine.config')
+
+tabnine:setup({
+	max_lines = 1000,
+	max_num_results = 20,
+	sort = true,
+	run_on_every_keystroke = true,
+	snippet_placeholder = '..',
+	ignored_file_types = {
+		-- default is not to ignore
+		-- uncomment to ignore in lua:
+		-- lua = true
+	},
+	show_prediction_strength = false,
+	min_percent = 0
+})
     end,
   },
 }
