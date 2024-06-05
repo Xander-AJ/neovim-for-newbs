@@ -1,5 +1,5 @@
 vim.keymap.set('n', '<C-i>', ':vsplit<CR>') -- Ctrl + equals (=) for vertical split
-vim.keymap.set('n', '<C-j', ':split<CR>')  -- Ctrl + minus (-) for horizontal split
+vim.keymap.set('n', '<C-h', ':split<CR>')  -- Ctrl + minus (-) for horizontal split
 
 -- Map copy, paste, and cut to your preferred keybindings
 
